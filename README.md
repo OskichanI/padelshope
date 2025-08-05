@@ -12,7 +12,7 @@ Este proyecto es una tienda en línea de palas de pádel, desarrollada con React
 ## Estructura del Proyecto
 
 ```plaintext
-01-padelShope/
+padelShope/
 ├── .gitignore
 ├── eslint.config.js
 ├── index.html
