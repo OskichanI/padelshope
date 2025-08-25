@@ -13,6 +13,11 @@ export default function Header({
     [cart]
   );
 
+  const cartItemsCount = useMemo(
+    () => cart.reduce((total, item) => total + item.quantity, 0),
+    [cart]
+  );
+
   return (
     <>
       <header className="py-5 header">
@@ -28,12 +33,36 @@ export default function Header({
               </a>
             </div>
             <nav className="col-md-6 a mt-5 d-flex align-items-start justify-content-end">
-              <div className="carrito">
+              <div className="carrito" style={{ position: "relative" }}>
                 <img
                   className="img-fluid"
                   src="/img/carrito.png"
                   alt="imagen carrito"
                 />
+
+                {cartItemsCount > 0 && (
+                  <span
+                    className="cart-counter"
+                    style={{
+                      position: "absolute",
+                      top: "-8px",
+                      right: "-8px",
+                      backgroundColor: "#dc3545",
+                      color: "white",
+                      borderRadius: "50%",
+                      width: "20px",
+                      height: "20px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "12px",
+                      fontWeight: "bold",
+                      minWidth: "20px",
+                    }}
+                  >
+                    {cartItemsCount}
+                  </span>
+                )}
 
                 <div id="carrito" className="bg-white p-3">
                   {isEmpty ? (
